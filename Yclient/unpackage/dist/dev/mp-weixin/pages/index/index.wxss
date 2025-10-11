@@ -1,0 +1,8 @@
+
+.top {
+		height: 400rpx;
+}
+.top .img1 {
+		width: 750rpx;
+		height: 400rpx;
+}

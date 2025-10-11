@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/info/info",
+    "pages/aichat/aichat"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/home (1).png",
+        "selectedIconPath": "/static/home.png"
+      },
+      {
+        "pagePath": "pages/aichat/aichat",
+        "iconPath": "/static/AI (1).png",
+        "selectedIconPath": "/static/AI.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "iconPath": "/static/info-circle (1).png",
+        "selectedIconPath": "/static/info-circle.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/static/my (1).png",
+        "selectedIconPath": "/static/my.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
