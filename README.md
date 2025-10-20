@@ -24,20 +24,20 @@
 本项目采用检索增强生成（RAG）方案，其工作流程如下：
 
 1.  **数据预处理**：加载 `data` 目录下的法律知识文档，并使用文本分割器进行处理。
-2.  **向量化**：使用 `Sentence-Transformers` 等嵌入模型将文本块转换为向量。
+2.  **向量化**：使用 `flagembedding``Sentence-Transformers` 等嵌入模型将文本块转换为向量。
 3.  **存入向量库**：将生成的向量存储在 `FAISS` 向量数据库中，并进行持久化。
-4.  **用户提问**：用户通过 Streamlit 界面输入问题。
+4.  **用户提问**：用户通过 Uniapp 界面输入问题。
 5.  **向量检索**：将用户的问题向量化，在 FAISS 向量库中检索最相关的文本块。
 6.  **构建提示词**：将检索到的相关文本和用户问题整合成一个精确的提示词（Prompt）。
-7.  **调用大模型**：将构建好的提示词发送给大语言模型（如 ChatGLM 或 OpenAI GPT）。
+7.  **调用大模型**：将构建好的提示词发送给大语言模型（如 Qwen3 或 deepseek OpenAI GPT）。
 8.  **生成并返回答案**：大模型根据提示词生成回答，并通过界面展示给用户。
 
 ## 📚 技术栈
 
-- **Web 框架**: Streamlit
+- **Web 框架**: Uniapp
 - **LLM 应用框架**: LangChain
-- **大语言模型 (LLM)**: OpenAI API, ChatGLM-6B (及其他 Transformers 支持的模型)
-- **向量嵌入 (Embedding)**: `sentence-transformers`
+- **大语言模型 (LLM)**: deepseek API, Qwen3 (及其他 Transformers 支持的模型)
+- **向量嵌入 (Embedding)**: `flagembedding`
 - **向量数据库**: FAISS
 - **核心库**: `torch`, `transformers`
 
@@ -74,16 +74,16 @@ pip install -r requirements.txt
 
 本项目支持多种模型，请根据需要选择并配置。
 
-- **使用 OpenAI 模型**:
-  在项目根目录下创建一个 `.env` 文件，并填入你的 OpenAI API Key。
+- **使用 deepseek 模型**:
+  在项目根目录下创建一个 `.env` 文件，并填入你的I API Key。
   ```
-  OPENAI_API_KEY="sk-YourApiKey"
+  DEEPSEEK_API_KEY="sk-YourApiKey"
   ```
-  *你可能还需要配置 API 代理，请参考 `src/models/openai.py` 文件进行修改。*
 
-- **使用本地 ChatGLM 模型**:
-  1.  从 [Hugging Face](https://huggingface.co/THUDM/chatglm-6b) 下载 ChatGLM-6B 或其他模型的权重文件。
-  2.  打开 `src/main.py` 文件，修改 `LLM_MODEL` 变量为 `"chatglm"`，并确保 `CHATGLM_MODEL_PATH` 变量指向你下载的模型权重路径。
+
+- **使用本地 Qwen3 模型**:
+  1.  从 Huggingface 或 modelscope 下载 Qwen3 或其他模型的权重文件。
+  2.  打开 `src/main.py` 文件，修改 `LLM_MODEL` 变量为 `"Qwen3"`，并确保 `MODEL_PATH` 变量指向你下载的模型权重路径。
 
 ### 4. 创建知识库向量索引
 
